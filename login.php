@@ -1,15 +1,16 @@
 <?php
 
 if (!empty($_GET['login']) && !empty($_GET['password'])) {
-	include __DIR__ . '/system/database.php';
+	include 'system/config.php';
+	include 'system/database.php';
 	
 	$login = $mysqli->real_escape_string(strtolower(trim($_GET['login'])));
 	$password = $mysqli->real_escape_string($_GET['password']);
 
-	$result = $mysqli->query("SELECT `user_id` FROM `users` WHERE `login`='" . $login . "' AND `password`='" . $password . "' LIMIT 1");
+	$result = $mysqli->query("SELECT `user_id` FROM `users` WHERE `login` = '" . $login . "' AND `password` = SHA1('" . $password . "') LIMIT 1");
 
 	if ($result->num_rows != 1) {
-		echo 'Неверный логин и/или пароль';
+		echo 'РќРµРІРµСЂРЅС‹Р№ Р»РѕРіРёРЅ Рё/РёР»Рё РїР°СЂРѕР»СЊ';
 	} else {
 		session_start();
 		session_unset();
@@ -19,6 +20,9 @@ if (!empty($_GET['login']) && !empty($_GET['password'])) {
 		$_SESSION['password'] = $password;
 		
 		$user_id = $mysqli->real_escape_string($result->fetch_row()[0]);
+		
+		$_SESSION['id'] = $user_id;
+		
 		$result->free();
 
 		$mysqli->query("DELETE FROM `sessions` WHERE `user_id`='" . $user_id . "'");
@@ -27,11 +31,5 @@ if (!empty($_GET['login']) && !empty($_GET['password'])) {
 		header('Location: http://' . $_SERVER['HTTP_HOST'] . '/index.php');
 	}
 }
-
-
-
-
-
-
 
 ?>
