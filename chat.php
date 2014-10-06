@@ -60,3 +60,5 @@ if (!empty($_GET['contact']) && !empty($_POST['message_text'])) {
 		}
 	} */
 }
+
+include 'view/chat.php';
