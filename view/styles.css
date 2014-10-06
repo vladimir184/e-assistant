@@ -1,0 +1,237 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+@font-face {
+	font-family: SegoeUI;
+	src: url(fonts/segoeui.ttf);
+}
+
+.window {
+	width: 1024px;
+	height: 700px;
+	background-color: #fafbfb;
+	position: relative;
+}
+
+.header {
+	background-color: #212026;
+	width: 824px;
+	height: 45px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.lsidebar {
+	height: 700px;
+	width: 200px;
+	background-color: #212026;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.people {
+	font-family: SegoeUI;
+	color: #fff;
+	font-size: 22px;
+	width: 200px;
+	padding-left: 25px;
+	line-height: 45px;
+	border-bottom: 2px solid #18171d;
+}
+
+.members {
+	width: 200px;
+	border: 0;
+	border-spacing: 0;
+}
+
+.memberName {
+	width: 125px;
+	padding-left: 25px;
+	height: 35px;
+	line-height: 30px;
+	font-family: SegoeUI;
+	color: #fff;
+	font-size: 14px;
+	border-bottom: 1px solid #18171d;
+}
+
+.memberStatus {
+	border-bottom: 1px solid #18171d;
+}
+
+input[name="online"] {
+	display: none;
+}
+
+input[name="online"] + label span {
+    display:inline-block;
+    width:10px;
+    height:10px;
+    vertical-align:middle;
+    background:url(images/online.png) left top no-repeat;
+    cursor:pointer;
+}
+
+input[name="offline"] {
+	display: none;
+}
+
+input[name="offline"] + label span {
+    display:inline-block;
+    width:10px;
+    height:10px;
+    vertical-align:middle;
+    background:url(images/offline.png) left top no-repeat;
+    cursor:pointer;
+}
+
+.messages {
+	width: 824px;
+	height: 655px;
+	position: absolute;
+	right: 0;
+	top: 45px;
+}
+
+.chatWindow {
+	height: 525px;
+	background-color: #fff;
+ 
+}
+
+.text {
+	height: 130px;
+	width: 824px;
+	background-color: #ecf0f1;
+}
+
+.header {
+	color: #fff;
+	text-align: center;
+	line-height: 45px;
+	font-size: 22px;
+	font-family: SegoeUI;
+}
+
+.area {
+	resize: none;
+	width: 380px;
+	height: 80px;
+	padding: 10px;
+	float: left;
+}
+
+.area:focus {
+	outline: 0;
+}
+
+.innerarea {
+	width: 515px;
+	height: 100px;
+	margin: 0 auto;
+	padding-top: 15px;
+}
+
+a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.messageButtons {
+	width: 110px;
+	height: 103px;
+	border-spacing:  0;
+	background-color: #2980b9;
+	font-family: SegoeUI;
+	color: #fff;
+	font-size: 16px;
+	text-align: center;
+}
+
+.messageButtons td {
+	border: 1px solid #1d6ca0;
+
+}
+
+.msgLeft{
+	width: 200px;
+	height: 60px;
+	background-color: #ecf0f1;
+	margin-left: 50px;
+}
+
+.msgRight{
+	width: 200px;
+	height: 60px;
+	background-color: #ecf0f1;
+	margin-right: 50px;
+	float: right;
+}
+
+.fullWidth {
+	width: 100%;
+	height: 280px;
+	background-color: #212026;
+	position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.enter {
+	width: 500px;
+	height: inherit;
+	background-color: #18171d;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.enter h1 {
+	font-family: SegoeUI;
+	font-size: 30px;
+	color: #fff;
+	margin-bottom: 50px;
+	padding-top: 15px;
+}
+
+.enter table {
+	width: 500px;
+	border-spacing:  0;
+	font-family: SegoeUI;
+	font-size: 22px;
+	color: #fff;
+	position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.enter td {
+	height: 50px;
+}
+
+.entertext {
+	width: 140px;
+}
+
+.enter table input {
+	height: 35px;
+	width: 270px;
+	font-size: 20px;
+}
+
+.enter > input {
+	margin-top: 100px;
+	width: 200px;
+	height: 40px;
+	font-size: 18px;
+}
