@@ -5,7 +5,7 @@
 
 @font-face {
 	font-family: SegoeUI;
-	src: url(fonts/segoeui.ttf);
+	src: url(view/fonts/segoeui.ttf);
 }
 
 .window {
@@ -73,7 +73,7 @@ input[name="online"] + label span {
     width:10px;
     height:10px;
     vertical-align:middle;
-    background:url(images/online.png) left top no-repeat;
+    background:url(view/images/online.png) left top no-repeat;
     cursor:pointer;
 }
 
@@ -86,7 +86,7 @@ input[name="offline"] + label span {
     width:10px;
     height:10px;
     vertical-align:middle;
-    background:url(images/offline.png) left top no-repeat;
+    background:url(view/images/offline.png) left top no-repeat;
     cursor:pointer;
 }
 

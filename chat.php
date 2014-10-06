@@ -20,17 +20,15 @@ foreach ($users as &$data) {
 						LIMIT 1");
 
 	if ($result->num_rows == 0) {
-		$data[] = 0;
+		$data[] = 'offline';
 	} else {
-		$data[] = 1;
+		$data[] = 'online';
 	}
 	
 	$result->free();
 }
 
 unset($data);
-
-var_dump($users);
 
 if (!empty($_GET['contact'])) {
 	$contact = (int) $_GET['contact'];

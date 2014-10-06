@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+	<meta charset="utf-8">
 	<title>Chat</title>
-	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="view/styles.css">
 </head>
 <body>
 	<div class="window">
@@ -11,39 +11,18 @@
 		<div class="lsidebar">
 			<div class="people">Участники</div>
 			<table class="members">
-					<tr>
-						<td class="memberName"><a href="#">Мастер Йода</a></td>
-						<td class="memberStatus"><input type="radio" name="online" disabled><label for=""><span></span></label></td>
-					</tr>
-					<tr>
-						<td class="memberName"><a href="#">Мастер Йода</a></td>
-						<td class="memberStatus"><input type="radio" name="online" disabled><label for=""><span></span></label></td>
-					</tr>
-					<tr>
-						<td class="memberName"><a href="#">Мастер Йода</a></td>
-						<td class="memberStatus"><input type="radio" name="online" disabled><label for=""><span></span></label></td>
-					</tr>
-					<tr>
-						<td class="memberName"><a href="#">Мастер Йода</a></td>
-						<td class="memberStatus"><input type="radio" name="online" disabled><label for=""><span></span></label></td>
-					</tr>
-					<tr>
-						<td class="memberName"><a href="#">Дарт Вейдер</a></td>
-						<td class="memberStatus"><input type="radio" name="offline" disabled><label for=""><span></span></label></td>
-					</tr>
-					<tr>
-						<td class="memberName"><a href="#">Дарт Вейдер</a></td>
-						<td class="memberStatus"><input type="radio" name="offline" disabled><label for=""><span></span></label></td>
-					</tr>
-					<tr>
-						<td class="memberName"><a href="#">Дарт Вейдер</a></td>
-						<td class="memberStatus"><input type="radio" name="offline" disabled><label for=""><span></span></label></td>
-					</tr>
-					<tr>
-						<td class="memberName"><a href="#">Дарт Вейдер</a></td>
-						<td class="memberStatus"><input type="radio" name="offline" disabled><label for=""><span></span></label></td>
-					</tr>
-				</table>	
+<?php
+
+foreach ($users as $user) {
+	echo '
+						<tr>
+							<td class="memberName"><a href="#">' . $user[1] . ' ' . $user[2] . '</a></td>
+							<td class="memberStatus"><input type="radio" name="' . $user[3] . '" disabled><label for=""><span></span></label></td>
+						</tr>';
+}
+
+?>
+			</table>	
 		</div>
 		<div class="messages">
 			<div class="chatWindow">
