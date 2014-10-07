@@ -5,11 +5,16 @@
 
 @font-face {
 	font-family: SegoeUI;
-	src: url(fonts/segoeui.ttf);
+	src: url(view/fonts/segoeui.ttf);
+}
+
+@font-face {
+	font-family: SegoeUIL;
+	src: url(view/fonts/segoeuil.ttf);
 }
 
 .window {
-	width: 1024px;
+	width: 100%;
 	height: 700px;
 	background-color: #fafbfb;
 	position: relative;
@@ -17,7 +22,7 @@
 
 .header {
 	background-color: #212026;
-	width: 824px;
+	width: 100%;
 	height: 45px;
 	position: absolute;
 	right: 0;
@@ -38,7 +43,7 @@
 	color: #fff;
 	font-size: 22px;
 	width: 200px;
-	padding-left: 25px;
+
 	line-height: 45px;
 	border-bottom: 2px solid #18171d;
 }
@@ -91,10 +96,10 @@ input[name="offline"] + label span {
 }
 
 .messages {
-	width: 824px;
+	width: inherit;
 	height: 655px;
 	position: absolute;
-	right: 0;
+	left: 200px;
 	top: 45px;
 }
 
@@ -106,7 +111,10 @@ input[name="offline"] + label span {
 
 .text {
 	height: 130px;
-	width: 824px;
+	position: absolute;
+	bottom: 0;
+	left: 200px;
+	width: inherit;
 	background-color: #ecf0f1;
 }
 
@@ -173,62 +181,56 @@ a {
 	float: right;
 }
 
-.fullWidth {
-	width: 100%;
-	height: 280px;
-	background-color: #3498db;
+/*----------------------------------СТРАНИЦА ВХОДА------------------------------------*/
+
+.enter {
+	width: 350px;
+	height: 400px;
+	background-color: #212026;
 	position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
-}
-
-.enter {
-	width: 500px;
-	height: inherit;
-	background-color: #2980b9;
-	margin: 0 auto;
 	text-align: center;
 }
 
 .enter h1 {
-	font-family: SegoeUI;
-	font-size: 30px;
+	font-family: SegoeUIL;
+	font-size: 45px;
 	color: #fff;
-	margin-bottom: 25px;
-	padding-top: 15px;
+	margin-bottom: 5px;
+	padding-top: 25px;
 }
 
 .enter table {
-	width: 500px;
 	border-spacing:  0;
 	font-family: SegoeUI;
-	font-size: 22px;
+	font-size: 16px;
 	color: #fff;
-    margin:0 auto;
+    margin: 0 auto;
 }
 
-.enter td {
-	height: 50px;
-
-}
 
 .entertext {
-	width: 140px;
-		text-align: right;
+	text-align: left;
+	height: 40px;
+	vertical-align: bottom;
+	padding-bottom: 5px;
 }
 
-.enter table input {
+.enter table input{
 	height: 30px;
-	width: 270px;
-	font-size: 20px;
+	width: 220px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 14px;
 }
 
-.enter form > input {
+.enter form > input[type="submit"] {
 	margin-top: 35px;
-	width: 300px;
+	width: 270px;
 	height: 40px;
 	font-size: 18px;
 	background-color: #fff;
@@ -237,4 +239,35 @@ a {
 
 .enterbody {
 	background-color: #ecf0f1;
+}
+
+.enterCheck {
+	width: 15px !important;
+	margin-right: 10px;
+}
+
+.checkbox {
+	margin-top: 25px;
+	float: left;
+	padding-left: 40px;
+	color: #fff;
+	font-family: SegoeUI;
+}
+
+.icon {
+	height: 30px;
+	width: 35px;
+	background-color: #18171d;
+	position: relative;
+}
+
+.icon img {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+.icon img {
+	position: absolute;
+	top: 10px;
+	left: 10px;
 }

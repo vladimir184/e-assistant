@@ -3,13 +3,13 @@
 <head>
 	<meta charset="utf-8">
 	<title>Chat</title>
-	<link rel="stylesheet" href="view/styles.css">
+	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 	<div class="window">
 		<div class="header">Мастер Йода <input type="radio" name="online" disabled><label for=""><span></span></label></div>
 		<div class="lsidebar">
-			<div class="people">Участники</div>
+			<div class="people">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Участники</div>
 			<table class="members">
 <?php
 
