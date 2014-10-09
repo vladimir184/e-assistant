@@ -5,12 +5,12 @@
 
 @font-face {
 	font-family: SegoeUI;
-	src: url(view/fonts/segoeui.ttf);
+	src: url(fonts/segoeui.ttf);
 }
 
 @font-face {
 	font-family: SegoeUIL;
-	src: url(view/fonts/segoeuil.ttf);
+	src: url(fonts/segoeuil.ttf);
 }
 
 .window {
@@ -194,14 +194,16 @@ a {
     right: 0;
     margin: auto;
 	text-align: center;
+	box-shadow: 0 0 100px rgba(0,0,0,0.4);
 }
 
 .enter h1 {
 	font-family: SegoeUIL;
-	font-size: 45px;
+	font-size: 55px;
 	color: #fff;
-	margin-bottom: 5px;
-	padding-top: 25px;
+	margin-bottom: 0px;
+	padding-top: 20px;
+	font-weight: 600;
 }
 
 .enter table {
@@ -226,6 +228,10 @@ a {
 	padding-left: 10px;
 	padding-right: 10px;
 	font-size: 14px;
+}
+
+.enter table input:focus {
+	outline: 0;
 }
 
 .enter form > input[type="submit"] {
@@ -254,20 +260,42 @@ a {
 	font-family: SegoeUI;
 }
 
-.icon {
+.icon1, .icon2 {
 	height: 30px;
 	width: 35px;
 	background-color: #18171d;
 	position: relative;
 }
 
-.icon img {
+.icon1 {
+	background-color: #c0392b !important
+}
+
+.icon1 img, .icon2 img {
 	position: absolute;
 	top: 10px;
 	left: 10px;
 }
-.icon img {
-	position: absolute;
-	top: 10px;
-	left: 10px;
+
+.relative {
+	position: relative;
 }
+.error1 {
+	position: absolute;
+	right: -155px;
+	top: 1px;
+	background-color: #c0392b;
+	padding: 6px 8px;
+}
+
+.rel {
+	position: relative;
+}
+
+.rel::after {
+    content: ''; 
+    position: absolute; 
+    left: -27px; bottom: 0px; 
+    border: 10px solid transparent; 
+    border-right: 10px solid #c0392b; 
+   }
