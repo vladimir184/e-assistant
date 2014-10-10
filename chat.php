@@ -46,19 +46,15 @@ if (!empty($_GET['contact'])) {
 	$result->free();
 }
 
-if (!empty($_GET['contact']) && !empty($_POST['message_text'])) {
-	$mysqli->query("INSERT INTO `messages` (`text`, `date_sent`) VALUES ('" . $mysqli->real_escape_string($_POST['message_text']) . "', NOW())");
-	$mysqli->query("INSERT INTO `addressees` (`addressee_user_id`, `addresser_user_id`) VALUES (" . (int) $_GET['contact'] . ", ". (int) $_SESSION['id'] . ")");
-
-/* 	if (!empty($_FILES)) {
-		foreach ($_FILES as $attachment) {
-			if ($attachment['error'] == UPLOAD_ERR_OK) {
-				if (move_uploaded_file($file['name']. )) {
-					
-				}
-			}
-		}
-	} */
+if (!empty($_GET['contact'])) {
+	$contact = (int) $_GET['contact'];
+	
+	$result = $mysqli->query("SELECT `passports`.`name`, `passports`.`surname`, `messages`.`text`, `messages`.`date_sent`, `messages`.`date_read`
+									FROM `passports`, `messages`
+									WHERE `messages`.`user_id_from` IN (" . (int) $_SESSION['id'] . ", " . $contact . ")
+									AND `messages`.`user_id_to` IN (" . (int) $_SESSION['id'] . ", " . $contact . ")
+									AND `messages`.`user_id_from` <> `messages`.`user_id_to`
+									AND `passports`.`user_id` IN (" . (int) $_SESSION['id'] . ", " . $contact . ")");
 }
 
 include 'view/chat.php';

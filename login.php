@@ -12,21 +12,24 @@ if (!empty($_POST['login']) && !empty($_POST['password'])) {
 	if ($result->num_rows != 1) {
 		$error = 'Неверный логин и/или пароль';
 	} else {
+		$error = null;
+
 		session_start();
 		session_unset();
-		session_regenerate_id();
-		
-		$_SESSION['login'] = $login;
-		$_SESSION['password'] = $password;
-		
+		session_regenerate_id()
+
 		$user_id = $mysqli->real_escape_string($result->fetch_row()[0]);
-		
-		$_SESSION['id'] = $user_id;
-		
 		$result->free();
 
-		$mysqli->query("DELETE FROM `sessions` WHERE `user_id`='" . $user_id . "'");
-		$mysqli->query("INSERT INTO `sessions` (`session_id`, `user_id`, `php_session_id`, `expires`) VALUES (NULL, '" . $user_id . "', '" . $mysqli->real_escape_string(session_id()) . "', NOW() + INTERVAL 60 MINUTE)");
+		$_SESSION['id'] = $user_id;
+		$_SESSION['login'] = $login;
+		$_SESSION['password'] = $password;
+		$_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
+
+		$mysqli->query("DELETE FROM `sessions` 
+							WHERE `user_id`='" . $user_id . "'");
+		$mysqli->query("INSERT INTO `sessions` (`session_id`, `user_id`, `phpssid`, `expires`)
+							VALUES (NULL, '" . $user_id . "', '" . $mysqli->real_escape_string(session_id()) . "', NOW() + INTERVAL 60 MINUTE)");
 	
 		header('Location: http://' . $_SERVER['HTTP_HOST'] . '/index.php');
 	}
