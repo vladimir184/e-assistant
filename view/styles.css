@@ -1,3 +1,4 @@
+/*------------GLOBAL------------*/
 * {
 	margin: 0;
 	padding: 0;
@@ -13,11 +14,19 @@
 	src: url(fonts/segoeuil.ttf);
 }
 
+a {
+	color: #fff;
+	text-decoration: none;
+}
+/*------------CHAT------------*/
+
 .window {
-	width: 100%;
-	height: 700px;
-	background-color: #fafbfb;
-	position: relative;
+	position: fixed;
+  	top: 0;
+  	left: 0;
+  	width: 100%;
+  	height: 100%;
+	background-color: #fff;	
 }
 
 .header {
@@ -27,33 +36,52 @@
 	position: absolute;
 	right: 0;
 	top: 0;
+	z-index: 9999;
+	color: #fff;
+	text-align: center;
+	line-height: 45px;
+	font-size: 22px;
+	font-family: SegoeUI;
 }
 
 .lsidebar {
-	height: 700px;
+	min-height: 100%;
 	width: 200px;
 	background-color: #212026;
-	position: absolute;
-	left: 0;
-	top: 0;
+	float: left;
 }
+.messages {
+	margin-left: 200px;
+	background-color: #fff;
+	height: 100%;
 
+
+}
 .people {
 	font-family: SegoeUI;
 	color: #fff;
 	font-size: 22px;
 	width: 200px;
-
 	line-height: 45px;
-	border-bottom: 2px solid #18171d;
+
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 10000;
+		padding-left: 25px;
 }
 
 .members {
 	width: 200px;
 	border: 0;
 	border-spacing: 0;
+	margin-top: 45px;
+
 }
 
+.wrapper {
+	width: 1000px;
+}
 .memberName {
 	width: 125px;
 	padding-left: 25px;
@@ -62,11 +90,14 @@
 	font-family: SegoeUI;
 	color: #fff;
 	font-size: 14px;
-	border-bottom: 1px solid #18171d;
+	border-top: 1px solid #18171d;
 }
 
+.space {
+	height: 65px;
+}
 .memberStatus {
-	border-bottom: 1px solid #18171d;
+	border-top: 1px solid #18171d;
 }
 
 input[name="online"] {
@@ -95,43 +126,30 @@ input[name="offline"] + label span {
     cursor:pointer;
 }
 
-.messages {
-	width: inherit;
-	height: 655px;
-	position: absolute;
-	left: 200px;
-	top: 45px;
-}
+
 
 .chatWindow {
-	height: 525px;
 	background-color: #fff;
  
 }
 
 .text {
-	height: 130px;
-	position: absolute;
-	bottom: 0;
-	left: 200px;
-	width: inherit;
+	height: 110px;
 	background-color: #ecf0f1;
-}
-
-.header {
-	color: #fff;
-	text-align: center;
-	line-height: 45px;
-	font-size: 22px;
-	font-family: SegoeUI;
+	bottom: 0;
+	position: absolute;
+	width: 100%;
 }
 
 .area {
 	resize: none;
 	width: 380px;
-	height: 80px;
+	height: 60px;
 	padding: 10px;
 	float: left;
+	font-family: SegoeUI;
+	font-size: 16px;
+
 }
 
 .area:focus {
@@ -143,22 +161,21 @@ input[name="offline"] + label span {
 	height: 100px;
 	margin: 0 auto;
 	padding-top: 15px;
+
 }
 
-a {
-	color: #fff;
-	text-decoration: none;
-}
 
 .messageButtons {
 	width: 110px;
-	height: 103px;
+	height: 70px;
 	border-spacing:  0;
 	background-color: #2980b9;
 	font-family: SegoeUI;
 	color: #fff;
 	font-size: 16px;
 	text-align: center;
+	line-height: 35px;
+	display: none;
 }
 
 .messageButtons td {
@@ -167,19 +184,15 @@ a {
 }
 
 .msgLeft{
-	width: 200px;
-	height: 60px;
+	width: inherit;
+	min-height: 50px;
 	background-color: #ecf0f1;
-	margin-left: 50px;
+	margin-left: 10px;
+	padding: 5px;
+	font-family: SegoeUI;
+	font-size: 14px;
 }
 
-.msgRight{
-	width: 200px;
-	height: 60px;
-	background-color: #ecf0f1;
-	margin-right: 50px;
-	float: right;
-}
 
 /*----------------------------------СТРАНИЦА ВХОДА------------------------------------*/
 
@@ -198,7 +211,7 @@ a {
 }
 
 .enter h1 {
-	font-family: SegoeUIL;
+	font-family: SegoeUI;
 	font-size: 55px;
 	color: #fff;
 	margin-bottom: 0px;
@@ -298,4 +311,50 @@ a {
     left: -27px; bottom: 0px; 
     border: 10px solid transparent; 
     border-right: 10px solid #c0392b; 
-   }
+}
+
+.profile {
+	width: 250px;
+	height: inherit;
+	border-left: 1px solid #18171d;
+	background-color: #212026;
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-size: 16px;
+}
+
+.avatar {
+	height: 40px;
+	width: 40px;
+	border-radius: 20px;
+	background-color: #fff;
+	position: absolute;
+	left: -50px;
+	top: -5px;
+	display: none; /*!*/
+}
+
+.profile > span {
+	position: relative;
+}
+
+.sidebar {
+	height: 2000px;
+	width: 250px;
+	background-color: #212026;
+}
+
+.menu {
+	margin-top: 45px;
+	color: #fff;
+	font-size: 18px;
+	font-family: SegoeUI;
+}
+
+.menu > li {
+	padding-left: 15px;
+	height: 30px;
+	background-color: #18171d;
+	line-height: 30px;
+}
