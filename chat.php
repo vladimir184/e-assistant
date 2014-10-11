@@ -29,7 +29,7 @@ foreach ($users as &$data) {
 }
 
 unset($data);
-
+/*
 if (!empty($_GET['contact'])) {
 	$contact = (int) $_GET['contact'];
 	
@@ -44,17 +44,20 @@ if (!empty($_GET['contact'])) {
 
 	$messages = $result->fetch_all();
 	$result->free();
-}
+}*/
 
 if (!empty($_GET['contact'])) {
 	$contact = (int) $_GET['contact'];
 	
-	$result = $mysqli->query("SELECT `passports`.`name`, `passports`.`surname`, `messages`.`text`, `messages`.`date_sent`, `messages`.`date_read`
-									FROM `passports`, `messages`
-									WHERE `messages`.`user_id_from` IN (" . (int) $_SESSION['id'] . ", " . $contact . ")
-									AND `messages`.`user_id_to` IN (" . (int) $_SESSION['id'] . ", " . $contact . ")
-									AND `messages`.`user_id_from` <> `messages`.`user_id_to`
-									AND `passports`.`user_id` IN (" . (int) $_SESSION['id'] . ", " . $contact . ")");
+	/*$result = $mysqli->query("SELECT `passports`.`name`, `passports`.`surname`, `messages`.`text`, `messages`.`date_sent`, `messages`.`date_read`
+									FROM `messages`
+									INNER JOIN `passports`
+									ON `messages`.`user_id_to` = 
+									WHERE `messages`.`user_id_from`
+									IN (" . $contact . "," . (int) $_SESSION['id'] . ")
+									AND `messages`.`user_id_to`
+									IN (" . $contact . "," . (int) $_SESSION['id'] . ")
+									AND `messages`.`user_id_from` <> `messages`.`user_id_to`*/
 }
 
 include 'view/chat.php';
