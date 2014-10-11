@@ -21,9 +21,11 @@ function sign_out() {
 
 if (!empty($_SESSION) && !empty($_SESSION['id']) && !empty($_SESSION['login']) && !empty($_SESSION['password']) && $_SESSION['ip'] == $_SERVER['REMOTE_ADDR']) {
 	$result = $mysqli->query("SELECT `session_id` FROM `sessions`
-									WHERE `php_session_id` = '" . $mysqli->real_escape_string(session_id()) . "'
+									WHERE `phpsessid` = '" . $mysqli->real_escape_string(session_id()) . "'
 									AND `user_id` = " . (int) $_SESSION['id'] . "
 									AND `expires` > NOW()");
+	
+	echo $mysqli->error;
 
 	if ($result->num_rows == 0) {
 		$result->free();
