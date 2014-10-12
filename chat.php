@@ -13,7 +13,7 @@ if (!empty($_GET['action']) && !empty($_GET['contact'])) {
 	switch ($_GET['action']) {
 		// Если необходимо обновить чат
 		case 'update': {
-			$result = $mysqli->query("SELECT `passports`.`name`, `passports`.`surname`, `messages`.`text`, `messages`.`date_sent`, `messages`.`date_read`
+/*			$result = $mysqli->query("SELECT `passports`.`surname`, `passports`.`name`, `messages`.`text`, `messages`.`date_sent`, `messages`.`date_read`
 											FROM `passports`, `messages`
 											WHERE `messages`.`user_id_from` <> `messages`.`user_id_to`
 											AND `messages`.`date_read` IS NULL
@@ -28,14 +28,30 @@ if (!empty($_GET['action']) && !empty($_GET['contact'])) {
 								AND `user_id_from` = " . $contact . "
 								AND `user_id_to` = " . (int) $_SESSION['id']);
 											
-			echo json_encode($result->fetch_all());
+			echo json_encode($result->fetch_all(MYSQLI_ASSOC));
+			$result->free();*/
+			$result = $mysqli->query("SELECT `passports`.`surname`, `passports`.`name`, `messages`.`text`, `messages`.`date_sent`, `messages`.`date_read`
+											FROM `passports`, `messages`
+											WHERE `messages`.`user_id_from` <> `messages`.`user_id_to`
+											AND `messages`.`user_id_from` IN (" . $contact . "," . (int) $_SESSION['id'] . ")
+											AND `messages`.`user_id_to` IN (" . $contact . "," . (int) $_SESSION['id'] . ")
+											AND `messages`.`user_id_from` = `passports`.`user_id`
+											ORDER BY `date_sent` ASC");								
+
+			$mysqli->query("UPDATE `messages`
+					SET `date_read` = NOW()
+					WHERE `date_read` IS NULL
+					AND `user_id_from` = " . $contact . "
+					AND `user_id_to` = " . (int) $_SESSION['id']);
+
+			echo json_encode($result->fetch_all(MYSQLI_ASSOC));
 			$result->free();
 		}
 		// Если необходимо отправить сообщение
 		case 'send': {
-			if (!empty($_GET['message'])) {
+			if (!empty($_POST['message'])) {
 				$mysqli->query("INSERT INTO `messages` (`message_id`, `user_id_from`, `user_id_to`, `text`, `date_sent`, `date_read`)
-									VALUES (NULL, " . (int) $_SESSION['id'] . ", " . $contact . ", '" . $mysqli->real_escape_string(htmlspecialchars($_GET['message'])) . "', NOW(), NULL)");
+									VALUES (NULL, " . (int) $_SESSION['id'] . ", " . $contact . ", '" . $mysqli->real_escape_string(htmlspecialchars($_POST['message'])) . "', NOW(), NULL)");
 			}
 		}
 	}
@@ -48,32 +64,32 @@ if (!empty($_GET['action']) && !empty($_GET['contact'])) {
 									FROM `passports`
 									ORDER BY `surname` ASC, `name` ASC");
 
-	$users = $result->fetch_all();
+	$users = $result->fetch_all(MYSQLI_ASSOC);
 	$result->free();
 
 	// Определение онлайн-статуса пользователей *начало
 	foreach ($users as &$data) {
 		$result = $mysqli->query("SELECT `session_id`
 							FROM `sessions`
-							WHERE `user_id` = " . (int) $data[0] . "
+							WHERE `user_id` = " . (int) $data['user_id'] . "
 							AND `expires` > NOW()
 							LIMIT 1");
 
-		if ($result->num_rows == 0) {
-			$data[] = 'offline';
+		if ($result->num_rows == 1) {
+			$data['status'] = 'online';
 		} else {
-			$data[] = 'online';
+			$data['status'] = 'offline';
 		}
 		$result->free();
 	}
 
 	unset($data); // Определение онлайн-статуса пользователей *конец
 
-	// Получение всех сообщений
 	if (!empty($_GET['contact'])) {
 		$contact = (int) $_GET['contact'];
 		
-		$result = $mysqli->query("SELECT `passports`.`name`, `passports`.`surname`, `messages`.`text`, `messages`.`date_sent`, `messages`.`date_read`
+		// Получение всех сообщений
+		$result = $mysqli->query("SELECT `passports`.`surname`, `passports`.`name`, `messages`.`text`, `messages`.`date_sent`, `messages`.`date_read`
 										FROM `passports`, `messages`
 										WHERE `messages`.`user_id_from` <> `messages`.`user_id_to`
 										AND `messages`.`user_id_from` IN (" . $contact . "," . (int) $_SESSION['id'] . ")
@@ -81,7 +97,29 @@ if (!empty($_GET['action']) && !empty($_GET['contact'])) {
 										AND `messages`.`user_id_from` = `passports`.`user_id`
 										ORDER BY `date_sent` ASC");								
 
-		$messages = $result->fetch_all();
+		$messages = $result->fetch_all(MYSQLI_ASSOC);
+		$result->free();
+		
+		// Получение данных о собеседнике
+		$result = $mysqli->query("SELECT `surname`, `name`
+										FROM `passports`
+										WHERE `user_id` = " . $contact . "
+										LIMIT 1");
+										
+		$contact_info = $result->fetch_assoc();
+		$result->free();
+		
+		$result = $mysqli->query("SELECT `expires`
+										FROM `sessions`
+										WHERE `expires` > NOW()
+										AND `user_id` = " . $contact . "
+										LIMIT 1");
+										
+		if ($result->num_rows == 1) {
+			$contact_info['status'] = 'online';
+		} else {
+			$contact_info['status'] = 'offline';
+		}
 		$result->free();
 		
 		include 'view/chat.php';
