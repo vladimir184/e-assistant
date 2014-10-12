@@ -86,24 +86,11 @@
 							</div>
 							<div class="mess">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent diam augue, pellentesque id lorem quis, aliquam commodo elit. Aenean sed posuere lectus. Praesent sagittis purus nec purus iaculis facilisis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer nec tortor odio.</div>
 						</div>
+
+					</div>
 						
-						<div class="msgLeft">
-							<div class="name">
-								<span class="msgName">Артём Мокренко</span>
-								<span class="msgTime">14:53</span>
-								<span  class="mstTime2">Прочитано: 14:54</span>
-							</div>
-							<div class="mess">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent diam augue, pellentesque id lorem quis, aliquam commodo elit. Aenean sed posuere lectus. Praesent sagittis purus nec purus iaculis facilisis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer nec tortor odio.</div>
-						</div>
-							<div class="msgLeft">
-							<div class="name">
-								<span class="msgName">Артём Мокренко</span>
-								<span class="msgTime">14:53</span>
-								<span  class="mstTime2">Прочитано: 14:54</span>
-							</div>
-							<div class="mess">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent diam augue, pellentesque id lorem quis, aliquam commodo elit. Aenean sed posuere lectus. Praesent sagittis purus nec purus iaculis facilisis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer nec tortor odio.</div>
-						</div>
-						
+
+
 						
 					</div>
 				</div>
@@ -120,6 +107,7 @@
 							</tr>
 						</table>
 					</div>
+					<div class="kostil">	</div>
 				</div>
 			</div>
 		</div>

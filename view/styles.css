@@ -228,6 +228,13 @@ input[name="offline"] + label span {
 	padding: 5px 10px 5px 10px;
 }
 
+.kostil {
+	position: absolute;
+	bottom: 0;
+	height: 110px;
+	right: 0;
+}
+
 /*----------------------------------СТРАНИЦА ВХОДА------------------------------------*/
 
 .enter {
