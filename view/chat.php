@@ -12,11 +12,11 @@
 	<body>
 
 			<div class="window">
-				<div class="header">Мастер Йода <input type="radio" name="online" disabled><label for=""><span></span></label>
+								<div class="people">Участники</div>				
+<div class="header">Мастер Йода <input type="radio" name="online" disabled><label for=""><span></span></label>
 	        </div>
 			
 			<div class="lsidebar">
-				<div class="people">Участники</div>				
 				<table class="members">
 					<tr>
 						<td class="memberName"><a href="#">Мастер Йода</a></td>
@@ -49,7 +49,8 @@
 					<tr>
 						<td class="memberName"><a href="#">Дарт Вейдер</a></td>
 						<td class="memberStatus"><input type="radio" name="offline" disabled><label for=""><span></span></label></td>
-					</tr>				
+					</tr>	
+							
 				<!--<?php
 
 				foreach ($users as $user) {

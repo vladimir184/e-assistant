@@ -51,13 +51,13 @@ a {
 }
 .lsidebar {
 	height: 100%;
-	width: 200px;
+	width: 220px;
 	background-color: #212026;
-
-	z-index: 99999;
+		overflow: scroll;
+	z-index: 9998;
 	position: absolute;
-	top: 0;
 	left: 0;
+	overflow-x: hidden;
 }
 
 .text {
@@ -107,12 +107,10 @@ a {
 }
 
 .messages {
-	margin-left: 200px;
+	margin-left: 220px;
 	background-color: #fff;
 	height: 100%;
 	overflow: scroll;
-
-
 }
 
 .people {
