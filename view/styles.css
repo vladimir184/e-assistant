@@ -334,7 +334,7 @@ input[name="offline"] + label span {
 }
 .error1 {
 	position: absolute;
-	right: -155px;
+	right: -285px;
 	top: 1px;
 	background-color: #c0392b;
 	padding: 6px 8px;
