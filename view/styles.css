@@ -34,6 +34,7 @@ a {
 	width: 100%;
 	height: 45px;
 	position: absolute;
+	padding-left: 200px;
 	right: 0;
 	top: 0;
 	z-index: 9999;
@@ -80,7 +81,7 @@ a {
 }
 
 .wrapper {
-	width: 1000px;
+	padding-right: 10px;
 }
 .memberName {
 	width: 125px;
@@ -130,6 +131,9 @@ input[name="offline"] + label span {
 
 .chatWindow {
 	background-color: #fff;
+	width: 100%;
+	height: 100%;
+	margin-right: 5px;
  
 }
 
@@ -185,14 +189,33 @@ input[name="offline"] + label span {
 
 .msgLeft{
 	width: inherit;
-	min-height: 50px;
+	min-height: 60px;
 	background-color: #ecf0f1;
 	margin-left: 10px;
 	padding: 5px;
 	font-family: SegoeUI;
 	font-size: 14px;
+	margin-bottom: 10px;
 }
 
+.msgName {
+	padding: 0 10px 0 0;
+}
+
+.msgTime {
+	padding: 0 20px 0 10px;
+}
+
+.name {
+	width: inherit;
+	padding-bottom: 5px;
+	padding-left: 10px;
+}
+
+.mess {
+	padding-left: 10px;
+	padding-bottom: 5px;
+}
 
 /*----------------------------------СТРАНИЦА ВХОДА------------------------------------*/
 
