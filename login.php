@@ -13,7 +13,7 @@ if (!empty($_POST['login']) && !empty($_POST['password'])) {
 									LIMIT 1");
 
 	if ($result->num_rows != 1) {
-		$error = 'Неверный логин и/или пароль';
+		$error = 'Неправильный логин и/или пароль';
 	} else {
 		$error = null;
 
@@ -34,7 +34,7 @@ if (!empty($_POST['login']) && !empty($_POST['password'])) {
 		$mysqli->query("INSERT INTO `sessions` (`session_id`, `user_id`, `phpsessid`, `expires`)
 							VALUES (NULL, '" . $user_id . "', '" . $mysqli->real_escape_string(session_id()) . "', NOW() + INTERVAL 60 MINUTE)");
 	
-		header('Location: http://' . $_SERVER['HTTP_HOST'] . '/index.php');
+		header('Location: http://' . $_SERVER['HTTP_HOST'] . '/chat.php');
 	}
 }
 
