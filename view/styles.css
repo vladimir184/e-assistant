@@ -81,7 +81,7 @@ a {
 }
 
 .innerarea {
-	width: 502px;
+	width: 504px;
 	height: 100px;
 	margin: 0 auto;
 	padding-top: 15px;
@@ -203,7 +203,6 @@ input[name="offline"] + label span {
 	min-height: 60px;
 	background-color: #ecf0f1;
 	margin-left: 10px;
-	padding: 5px;
 	font-family: SegoeUI;
 	font-size: 14px;
 	margin-bottom: 10px;
@@ -219,13 +218,14 @@ input[name="offline"] + label span {
 
 .name {
 	width: inherit;
-	padding-bottom: 5px;
+	padding-bottom: 3px;
 	padding-left: 10px;
+	background-color: #e0e5e6;
 }
 
 .mess {
-	padding-left: 10px;
-	padding-bottom: 5px;
+
+	padding: 5px 10px 5px 10px;
 }
 
 /*----------------------------------СТРАНИЦА ВХОДА------------------------------------*/
