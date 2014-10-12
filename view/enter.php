@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Enter</title>
-	<link rel="stylesheet" href="view/styles.css">
-</head>
-<body class="enterbody">
+	<head>
+		<meta charset="utf-8">
+		<title>Вход</title>
+		<link rel="stylesheet" href="view/styles.css">
+	</head>
+	<body class="enterbody">
 		<div class="enter">
 			<h1>E-Assistant</h1>
 			<form method="post" action="login.php">
-
 				<table>
 					<tr>
 						<td class="entertext" colspan="2">Логин</td>							
@@ -41,10 +40,9 @@ if (!empty($error)) {
 						</td>
 					</tr>
 				</table>
-
 				<div class="checkbox"><input type="checkbox" class="enterCheck"><span>Запомнить</span></div>
 				<input type="submit" value="Войти">
 			</form>
 		</div>
-</body>
+	</body>
 </html>
