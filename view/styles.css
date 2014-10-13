@@ -103,7 +103,7 @@ a {
 
 .messageButtons td {
 	border: 1px solid #1b1a20;
-
+	cursor: pointer;
 }
 
 .messages {
